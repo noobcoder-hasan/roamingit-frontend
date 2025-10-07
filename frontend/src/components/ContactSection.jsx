@@ -18,7 +18,8 @@ const ContactSection = () => {
   // Helper function to send data to backend for Google Sheets integration
   const sendToGoogleSheets = async (data) => {
     try {
-      const response = await fetch('http://localhost:5001/api/sheets', {
+      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/contact`;
+      const response = await fetch(apiUrl,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
