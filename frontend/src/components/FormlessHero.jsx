@@ -24,15 +24,6 @@ const FormlessHero = () => {
 
         {/* Action Buttons */}
         <div className="hero-actions flex flex-row justify-center gap-4 mb-6 animate-fadeIn delay-200">
-          <a href="#contact" className="btn btn-primary hover:scale-105 transition-transform transform">
-            Let's Talk
-          </a>
-          <a href="#services" className="btn btn-primary hover:scale-105 transition-transform transform">
-            Our Projects
-          </a>
-          <a href="#teams" className="btn btn-primary hover:scale-105 transition-transform transform">
-            Our Teams
-          </a>
         </div>
 
       </div>

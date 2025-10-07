@@ -97,7 +97,7 @@
 /* Action buttons */
 .hero-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem; /* Increased gap for better spacing */
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
@@ -105,19 +105,27 @@
 }
 
 .btn-primary {
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 700;
-  transition: all 0.25s ease, transform 0.25s ease;
-  border: 1px solid var(--btn-border);
-  box-shadow: var(--btn-shadow);
+  background: linear-gradient(45deg, #007BFF, #0056b3); /* Professional blue gradient */
+  color: #FFFFFF; /* White text for contrast */
+  padding: 0.85rem 1.75rem; /* Slightly larger padding */
+  border-radius: 12px; /* Softer, more modern border-radius */
+  font-weight: 600; /* Adjusted font-weight */
+  letter-spacing: 0.5px; /* Added letter-spacing for readability */
+  transition: all 0.3s ease;
+  border: none; /* Removed border for a cleaner look */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); /* Softer, modern shadow */
+  cursor: pointer; /* Explicitly set cursor to pointer */
 }
 
 .btn-primary:hover {
-  background: var(--btn-hover-bg);
-  transform: translateY(-2px);
+  background: linear-gradient(45deg, #0056b3, #007BFF); /* Inverted gradient on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); /* Enhanced shadow on hover */
+}
+
+.btn-primary:active {
+  transform: translateY(-1px); /* Slight press-down effect on click */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Reduced shadow on click */
 }
 
 .btn-secondary {

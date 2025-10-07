@@ -61,18 +61,23 @@
 
 /* Primary Contact Button */
 .nav-btn-primary {
-  background: var(--btn-bg);
-  color: var(--btn-text) !important;
-  font-weight: 700;
-  border-radius: 8px;
-  padding: 0.55rem 1rem;
-  border: 1px solid var(--btn-border);
-  box-shadow: var(--btn-shadow);
+  background: linear-gradient(45deg, #007BFF, #0056b3); /* Professional blue gradient */
+  color: #FFFFFF !important; /* White text for contrast */
+  padding: 0.85rem 1.75rem; /* Slightly larger padding */
+  border-radius: 12px; /* Softer, more modern border-radius */
+  font-weight: 600; /* Adjusted font-weight */
+  letter-spacing: 0.5px; /* Added letter-spacing for readability */
+  transition: all 0.3s ease;
+  border: none; /* Removed border for a cleaner look */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); /* Softer, modern shadow */
+  cursor: pointer; /* Explicitly set cursor to pointer */
 }
 
 .nav-btn-primary:hover {
-  background: var(--btn-hover-bg);
-  color: var(--btn-text) !important;
+  background: linear-gradient(45deg, #0056b3, #007BFF); /* Inverted gradient on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); /* Enhanced shadow on hover */
+  color: #FFFFFF !important;
 }
 
 /* Hamburger Menu - Mobile */
