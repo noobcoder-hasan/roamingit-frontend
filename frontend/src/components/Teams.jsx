@@ -1,7 +1,7 @@
 import React from 'react';
 import './Teams.css';
 import teamMember1 from '../assets/team-member-1.svg';
-import teamMember2 from '../assets/team-member-2.svg';
+import teamMember2 from '../assets/abrar.jpg';
 import teamMember3 from '../assets/team-member-3.svg';
 import teamMember4 from '../assets/team-member-4.svg';
 
@@ -35,17 +35,17 @@ const teamsData = [
     skills: ['Docker', 'Kubernetes', 'CI/CD', 'Terraform'],
     experience: '6+ years',
     description: 'Expert in building robust, scalable infrastructure and automating deployment processes.'
+  },
+  {
+    id: 4,
+    name: 'Saify Abid Bhuiyan',
+    role: 'Mobile Developer',
+    specialization: 'Cross-Platform Apps',
+    image: teamMember4,
+    skills: ['React Native', 'Flutter', 'iOS', 'Android'],
+    experience: '3+ years',
+    description: 'Specialized in creating high-performance mobile applications for iOS and Android.'
   }
-  // {
-  //   id: 4,
-  //   name: 'Emily Davis',
-  //   role: 'Mobile Developer',
-  //   specialization: 'Cross-Platform Apps',
-  //   image: teamMember4,
-  //   skills: ['React Native', 'Flutter', 'iOS', 'Android'],
-  //   experience: '3+ years',
-  //   description: 'Specialized in creating high-performance mobile applications for iOS and Android.'
-  // }
 ];
 
 const Teams = () => {
@@ -68,6 +68,10 @@ const Teams = () => {
                     src={member.image} 
                     alt={`${member.name} - ${member.role}`}
                     className="team-image"
+                    loading="lazy"
+                    decoding="async"
+                    width="130"
+                    height="130"
                   />
                   <div className="team-image-overlay">
                   </div>
@@ -96,4 +100,4 @@ const Teams = () => {
   );
 };
 
-export default Teams;
+export default React.memo(Teams);

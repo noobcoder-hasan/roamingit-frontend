@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Disallow dev-specific paths if any (none currently)
+
+Sitemap: https://www.roamingit.example/sitemap.xml

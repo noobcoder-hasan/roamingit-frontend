@@ -8,11 +8,18 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScroll(window.scrollY > 50);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          setScroll(window.scrollY > 50);
+          ticking = false;
+        });
+      }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -33,7 +40,12 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${scroll ? 'navbar-scrolled' : ''}`}>
-      <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)} aria-label="Go to home">
+      <Link to="/" className="navbar-logo" onClick={() => {
+        if (location.pathname === '/') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        setMenuOpen(false)
+      }} aria-label="Go to home">
         <img src="/logo-roaming.svg" alt="Roaming Tech" className="navbar-logo-img" />
       </Link>
 
@@ -46,7 +58,12 @@ const Navbar = () => {
       <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
         {/* HOME */}
         <li className="nav-item">
-          <Link to="/" className="nav-btn" onClick={() => setMenuOpen(false)}>
+          <Link to="/" className="nav-btn" onClick={() => {
+            if (location.pathname === '/') {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            setMenuOpen(false)
+          }}>
             HOME
           </Link>
         </li>
@@ -77,4 +94,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);
