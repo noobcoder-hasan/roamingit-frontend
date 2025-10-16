@@ -46,7 +46,7 @@ const Navbar = () => {
         }
         setMenuOpen(false)
       }} aria-label="Go to home">
-        <img src="/logo-roaming.svg" alt="Roaming Tech" className="navbar-logo-img" />
+        <img src="/logo-roaming.svg" alt="Roaming Engineering" className="navbar-logo-img" />
       </Link>
 
       <div className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu" role="button" tabIndex={0}>
@@ -67,18 +67,7 @@ const Navbar = () => {
             HOME
           </Link>
         </li>
-        {/* ABOUTUS */}
-        <li className="nav-item">
-          <Link to="/about" className="nav-btn" onClick={() => setMenuOpen(false)}>
-            ABOUTUS
-          </Link>
-        </li>
-        {/* contact */}
-        <li className="nav-item">
-          <button className="nav-btn" onClick={() => scrollToSection('contact')}>
-            Let's Talk
-          </button>
-        </li>
+
         <li className="nav-item">
           <button className="nav-btn" onClick={() => scrollToSection('services')}>
             Our Projects
@@ -87,6 +76,17 @@ const Navbar = () => {
         <li className="nav-item">
           <button className="nav-btn" onClick={() => scrollToSection('teams')}>
             Our Teams
+          </button>
+        </li>
+                {/* ABOUTUS */}
+        <li className="nav-item">
+          <button className="nav-btn" onClick={() => scrollToSection('aboutus')}>
+            About
+          </button>
+        </li>        {/* contact */}
+        <li className="nav-item">
+          <button className="nav-btn" onClick={() => scrollToSection('contact')}>
+            Let's Talk
           </button>
         </li>
       </ul>

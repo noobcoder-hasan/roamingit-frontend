@@ -61,7 +61,7 @@
 
 /* Primary Contact Button */
 .nav-btn-primary {
-  background: linear-gradient(45deg, #007BFF, #0056b3); /* Professional blue gradient */
+  background: linear-gradient(45deg, #FF4D4F, #C62828); /* Red gradient */
   color: #FFFFFF !important; /* White text for contrast */
   padding: 0.85rem 1.75rem; /* Slightly larger padding */
   border-radius: 12px; /* Softer, more modern border-radius */
@@ -69,14 +69,14 @@
   letter-spacing: 0.5px; /* Added letter-spacing for readability */
   transition: all 0.3s ease;
   border: none; /* Removed border for a cleaner look */
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); /* Softer, modern shadow */
+  box-shadow: 0 4px 15px rgba(229, 57, 53, 0.25); /* Red-tinted shadow */
   cursor: pointer; /* Explicitly set cursor to pointer */
 }
 
 .nav-btn-primary:hover {
-  background: linear-gradient(45deg, #0056b3, #007BFF); /* Inverted gradient on hover */
+  background: linear-gradient(45deg, #C62828, #FF4D4F); /* Inverted red gradient on hover */
   transform: translateY(-3px); /* Lift effect on hover */
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); /* Enhanced shadow on hover */
+  box-shadow: 0 6px 20px rgba(229, 57, 53, 0.35); /* Enhanced red shadow on hover */
   color: #FFFFFF !important;
 }
 

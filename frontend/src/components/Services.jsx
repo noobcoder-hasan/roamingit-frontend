@@ -3,37 +3,31 @@ import './Services.css';
 
 const servicesData = [
   {
-    icon: '⚡',
     title: 'AI & Cloud Solutions',
     description:
       'Leverage AI assistants, automation, and cloud-native infrastructure to scale securely and efficiently.',
   },
   {
-    icon: '⚙️',
     title: 'Web Development',
     description:
       'Modern, fast, and accessible websites built with best-in-class tooling and performance in mind.',
   },
   {
-    icon: '📲',
     title: 'Mobile Apps',
     description:
       'Cross-platform iOS and Android apps focused on intuitive UX and robust offline-first experiences.',
   },
   {
-    icon: '✨',
     title: 'UI/UX Design',
     description:
       'Human-centered product design that balances usability, delight, and business outcomes.',
   },
   {
-    icon: '🔧',
     title: 'Software Consulting',
     description:
       'Architecture reviews, roadmap planning, and hands-on guidance to accelerate delivery.',
   },
   {
-    icon: '🛡️',
     title: 'Security & Compliance',
     description:
       'Security audits, monitoring, and privacy-by-design to keep your products and users protected.',
@@ -75,7 +69,6 @@ const Services = () => {
                     onClick={scrollToContact}
                   >
                     <div className="orbit-item-inner">
-                      <div className="orbit-icon" aria-hidden="true">{svc.icon}</div>
                       <div className="orbit-label">{svc.title}</div>
                     </div>
                   </button>
@@ -95,15 +88,18 @@ const Services = () => {
               tabIndex={0}
               aria-label={`${svc.title}: ${svc.description}`}
             >
-              <div className="service-icon" aria-hidden="true">{svc.icon}</div>
               <h3 className="service-title">{svc.title}</h3>
               <p className="service-description">{svc.description}</p>
-              <button className="service-cta" onClick={scrollToContact}>
-                Contact Us
-                <span className="arrow" aria-hidden="true">→</span>
-              </button>
             </article>
           ))}
+        </div>
+
+        {/* Universal Contact Section */}
+        <div className="services-contact">
+          <button className="universal-contact-btn" onClick={scrollToContact}>
+            Contact Us
+            <span className="arrow" aria-hidden="true">→</span>
+          </button>
         </div>
       </div>
     </section>

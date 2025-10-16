@@ -5,20 +5,21 @@ import SEOHead from '../components/SEOHead';
 const Services = React.lazy(() => import('../components/Services'));
 const Teams = React.lazy(() => import('../components/Teams'));
 const ContactSection = React.lazy(() => import('../components/ContactSection'));
+const About = React.lazy(() => import('../components/About'));
 
 const Home = () => {
   return (
     <>
       <SEOHead
-        title="Roaming IT — Reliable, Modern Products for Teams"
-        description="Roaming IT builds and operates secure, reliable products with modern stacks and strong developer experience."
+        title="Roaming Engineering — Reliable, Modern Products for Teams"
+        description="Roaming Engineering builds and operates secure, reliable products with modern stacks and strong developer experience."
         canonicalPath="/"
-        openGraph={{ siteName: 'Roaming IT', type: 'website' }}
+        openGraph={{ siteName: 'Roaming Engineering', type: 'website' }}
         twitter={{ card: 'summary' }}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          name: 'Roaming IT',
+          name: 'Roaming Engineering',
           url: typeof window !== 'undefined' ? window.location.origin : 'https://roamingit.netlify.app',
           potentialAction: {
             '@type': 'SearchAction',
@@ -29,16 +30,26 @@ const Home = () => {
       />
       <FormlessHero />
       <LazySection>
+        <Suspense fallback={<div className="loading" style={{padding:'2rem',textAlign:'center'}}>Loading teams…</div>}>
+          <About />
+        </Suspense>
+      </LazySection>
+
+      <LazySection>
         <Suspense fallback={<div className="loading" style={{padding:'2rem',textAlign:'center'}}>Loading services…</div>}>
           <Services />
         </Suspense>
       </LazySection>
+      
+
 
       <LazySection>
         <Suspense fallback={<div className="loading" style={{padding:'2rem',textAlign:'center'}}>Loading teams…</div>}>
           <Teams />
         </Suspense>
       </LazySection>
+
+
 
       <LazySection>
         <Suspense fallback={<div className="loading" style={{padding:'2rem',textAlign:'center'}}>Loading contact…</div>}>

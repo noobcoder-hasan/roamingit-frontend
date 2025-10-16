@@ -24,9 +24,12 @@
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(1000px 400px at 20% 10%, rgba(0,229,255,.10), transparent 60%),
-    radial-gradient(900px 360px at 80% 20%, rgba(57,91,255,.10), transparent 60%);
+  background-image:
+    radial-gradient(circle, rgba(229, 57, 53, 0.10) 1.2px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 193, 7, 0.08) 1px, transparent 1.6px);
+  background-size: 28px 28px, 56px 56px;
+  background-position: 0 0, 14px 14px;
+  opacity: 0.4;
   filter: saturate(110%);
   pointer-events: none;
   z-index: 0;

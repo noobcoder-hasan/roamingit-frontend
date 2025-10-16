@@ -3,6 +3,24 @@
 .about-section {
   padding: 4rem 5%;
   background: var(--color-black); /* black background */
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle, rgba(229, 57, 53, 0.10) 1.2px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 193, 7, 0.08) 1px, transparent 1.6px);
+  background-size: 28px 28px, 56px 56px;
+  background-position: 0 0, 14px 14px;
+  opacity: 0.45;
+  pointer-events: none;
 }
 
 .about-container {

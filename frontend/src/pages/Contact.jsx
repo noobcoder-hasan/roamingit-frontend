@@ -19,12 +19,12 @@ const Contact = () => {
   const contactJsonLd = useMemo(() => ({
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact Roaming IT',
+    name: 'Contact Roaming Engineering',
     url: canonicalUrl,
-    description: 'Contact Roaming IT for travel planning, custom itineraries, and support.',
+    description: 'Contact Roaming Engineering for travel planning, custom itineraries, and support.',
     publisher: {
       '@type': 'Organization',
-      name: 'Roaming IT',
+      name: 'Roaming Engineering',
       url: siteUrl,
       logo: `${siteUrl}/logo-roaming.svg`,
     },
@@ -62,15 +62,15 @@ const Contact = () => {
   return (
     <section className="contact-page" aria-labelledby="contact-title" style={{ padding: '4rem 5%', maxWidth: 900 }}>
       <SEOHead
-        title="Contact Us | Roaming IT"
-        description="Get in touch with Roaming IT for travel planning, custom itineraries, and support."
+        title="Contact Us | Roaming Engineering"
+        description="Get in touch with Roaming Engineering for travel planning, custom itineraries, and support."
         canonicalPath="/contact"
         openGraph={{ type: 'website' }}
         twitter={{ card: 'summary' }}
         jsonLd={contactJsonLd}
       />
       <header>
-        <h1 id="contact-title" style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>Contact Roaming IT</h1>
+        <h1 id="contact-title" style={{ fontSize: '2.2rem', marginBottom: '1rem' }}>Contact Roaming Engineering</h1>
         <p style={{ marginBottom: '1.5rem' }}>
           Have questions or want a custom itinerary? Send us a message and our team will get back to you.
         </p>
@@ -113,12 +113,12 @@ const Contact = () => {
         __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'ContactPage',
-          name: 'Contact Roaming IT',
+          name: 'Contact Roaming Engineering',
           url: canonicalUrl,
-          description: 'Contact Roaming IT for travel planning, custom itineraries, and support.',
+          description: 'Contact Roaming Engineering for travel planning, custom itineraries, and support.',
           publisher: {
             '@type': 'Organization',
-            name: 'Roaming IT',
+            name: 'Roaming Engineering',
             url: siteUrl,
           },
           contactPoint: {

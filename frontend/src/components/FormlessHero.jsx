@@ -19,7 +19,7 @@ const FormlessHero = () => {
           Think IT, <span className="badge">Do IT.</span>
         </h1>
         <p className="hero-subtitle text-lg md:text-xl text-gray-200 mb-8 animate-slideInUp">
-          Roaming Tech takes care of the work so teams can connect with their customers.
+          Roaming Engineering takes care of the work so teams can connect with their customers.
         </p>
 
         {/* Action Buttons */}

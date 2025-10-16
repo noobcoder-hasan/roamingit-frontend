@@ -9,10 +9,7 @@ body {
   line-height: 1.7;
   color: #ffffff;
   min-height: 100vh;
-  background:
-    radial-gradient(1200px 600px at 20% 10%, rgba(0, 229, 255, 0.08), transparent 60%),
-    radial-gradient(1000px 420px at 80% 20%, rgba(57, 91, 255, 0.10), transparent 60%),
-    #000;
+  background: var(--color-black);
   background-attachment: fixed;
   background-size: cover;
 }
@@ -20,26 +17,28 @@ body {
 html { scroll-behavior: smooth; }
 
 :root {
-  /* Global theme: BLACK, BLUE, CYAN */
+  /* Global theme: BLACK, RED, WHITE */
   --color-black: #000000;
-  --color-blue: #395BFF; /* primary blue */
-  --color-cyan: #00AEEF; /* primary cyan */
+  --color-blue: #E53935; /* repurposed as primary red */
+  --color-cyan: #FF6B6B; /* repurposed as light red */
+  --color-red: #E53935;
+  --color-red-dark: #9C1D1D;
 
   /* Text and surfaces */
   --text-primary: #ffffff;
-  --text-muted: #cfd8e3;
+  --text-muted: #e5e7eb;
   --surface-dark: rgba(20, 22, 28, 0.7);
   --surface-darker: rgba(10, 12, 16, 0.65);
-  --border-light: rgba(255, 255, 255, 0.12);
+  --border-light: rgba(255, 255, 255, 0.15);
 
   /* Buttons */
   --btn-text: #ffffff;
   --btn-bg: linear-gradient(135deg, var(--color-cyan), var(--color-blue));
-  --btn-border: rgba(0, 229, 255, 0.25);
-  --btn-shadow: 0 10px 25px rgba(0, 229, 255, 0.28);
-  --btn-hover-bg: linear-gradient(135deg, #22ddff, #2a48dd);
-  --btn-active-bg: linear-gradient(135deg, #12c6ea, #233fcf);
-  --btn-focus: rgba(0, 229, 255, 0.4);
+  --btn-border: rgba(229, 57, 53, 0.25);
+  --btn-shadow: 0 10px 25px rgba(229, 57, 53, 0.28);
+  --btn-hover-bg: linear-gradient(135deg, #ff8181, #d32f2f);
+  --btn-active-bg: linear-gradient(135deg, #f05454, #c62828);
+  --btn-focus: rgba(229, 57, 53, 0.4);
 
   --btn-secondary-bg: rgba(255, 255, 255, 0.12);
   --btn-secondary-text: var(--text-primary);
@@ -90,10 +89,11 @@ html { scroll-behavior: smooth; }
   pointer-events: none;
   z-index: 0;
   background-image:
-    radial-gradient(circle at 25% 25%, rgba(0, 174, 239, 0.1) 0, rgba(0, 174, 239, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, rgba(255, 193, 7, 0.08) 0, rgba(255, 193, 7, 0.08) 2px, transparent 2px);
-  background-size: 40px 40px, 60px 60px;
-  animation: float 20s ease-in-out infinite;
+    radial-gradient(circle, rgba(229, 57, 53, 0.10) 1.2px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 193, 7, 0.08) 1px, transparent 1.6px);
+  background-size: 28px 28px, 56px 56px;
+  background-position: 0 0, 14px 14px;
+  opacity: 0.5;
 }
 
 @keyframes bgFloat {
@@ -123,12 +123,12 @@ html { scroll-behavior: smooth; }
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #22ddff, #2a48dd);
+  background: linear-gradient(135deg, #ff8181, #d32f2f);
 }
 
 /* Selection styles */
 ::selection {
-  background: rgba(0, 229, 255, 0.25);
+  background: rgba(229, 57, 53, 0.25);
   color: var(--text-primary);
 }
 
