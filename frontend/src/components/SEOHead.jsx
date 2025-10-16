@@ -17,7 +17,7 @@ const SEOHead = ({
   jsonLd,
 }) => {
   const origin = useMemo(() => (
-    typeof window !== 'undefined' ? window.location.origin : 'https://www.roamingit.example'
+    typeof window !== 'undefined' ? window.location.origin : 'https://roamingit.netlify.app'
   ), []);
   const canonical = useMemo(() => (
     openGraph.urlOverride || `${origin}${canonicalPath || ''}`

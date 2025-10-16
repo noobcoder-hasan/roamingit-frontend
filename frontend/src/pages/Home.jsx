@@ -19,10 +19,10 @@ const Home = () => {
           '@context': 'https://schema.org',
           '@type': 'WebSite',
           name: 'Roaming IT',
-          url: typeof window !== 'undefined' ? window.location.origin : 'https://www.roamingit.example',
+          url: typeof window !== 'undefined' ? window.location.origin : 'https://roamingit.netlify.app',
           potentialAction: {
             '@type': 'SearchAction',
-            target: `${typeof window !== 'undefined' ? window.location.origin : 'https://www.roamingit.example'}/?q={search_term_string}`,
+            target: `${typeof window !== 'undefined' ? window.location.origin : 'https://roamingit.netlify.app'}/?q={search_term_string}`,
             'query-input': 'required name=search_term_string'
           }
         }}

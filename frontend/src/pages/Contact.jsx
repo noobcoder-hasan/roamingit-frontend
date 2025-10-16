@@ -10,7 +10,7 @@ const Contact = () => {
 
   // SEO: dynamic title, meta description, canonical, OpenGraph/Twitter
   const siteUrl = useMemo(() => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://www.roamingit.example';
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://roamingit.netlify.app';
     return origin;
   }, []);
   const canonicalUrl = useMemo(() => `${siteUrl}/contact`, [siteUrl]);

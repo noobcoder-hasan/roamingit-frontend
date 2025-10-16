@@ -15,7 +15,7 @@ const About = () => {
           '@context': 'https://schema.org',
           '@type': 'AboutPage',
           name: 'About Roaming IT',
-          url: typeof window !== 'undefined' ? `${window.location.origin}/about` : 'https://www.roamingit.example/about'
+          url: typeof window !== 'undefined' ? `${window.location.origin}/about` : 'https://roamingit.netlify.app/about'
         }}
       />
       <div className="about-container">
