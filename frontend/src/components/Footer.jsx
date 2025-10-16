@@ -12,18 +12,8 @@ const Footer = () => {
             <span className="brand-name">Roaming</span>
           </a>
           <p className="brand-tag">Reliable products for modern teams.</p>
-        </div>
-
-        <nav className="footer-nav" aria-label="Footer">
-          <Link to="/about" className="footer-link">About Us</Link>
-          <a href="/#services" className="footer-link">Services</a>
-          <a href="/#contact" className="footer-link">Contact</a>
-        </nav>
-
- 
-
+        </div> 
       </div>
-
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Roaming Engineering. All rights reserved.</p>
       </div>

@@ -3,6 +3,10 @@ import './FormlessHero.css';
 import flyingPlane from '../assets/flying plane.gif'; // Background can be subtle underlay
 
 const FormlessHero = () => {
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   return (
     <section className="formless-hero" id="home">
       {/* Background */}
