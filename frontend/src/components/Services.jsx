@@ -3,35 +3,20 @@ import './Services.css';
 
 const servicesData = [
   {
-    title: 'AI & Cloud Solutions',
+    title: 'Automation Solutions',
     description:
-      'Leverage AI assistants, automation, and cloud-native infrastructure to scale securely and efficiently.',
+      'Streamline repetitive tasks and business processes using intelligent automation tools, chatbots, and AI workflows for improved efficiency and accuracy.',
+  },
+  {
+    title: 'AI-Powered Digital Marketing',
+    description:
+      'Boost your brand visibility using AI-driven strategies — from social media automation and SEO optimization to predictive analytics and targeted ad campaigns.',
   },
   {
     title: 'Web Development',
     description:
-      'Modern, fast, and accessible websites built with best-in-class tooling and performance in mind.',
-  },
-  {
-    title: 'Mobile Apps',
-    description:
-      'Cross-platform iOS and Android apps focused on intuitive UX and robust offline-first experiences.',
-  },
-  {
-    title: 'UI/UX Design',
-    description:
-      'Human-centered product design that balances usability, delight, and business outcomes.',
-  },
-  {
-    title: 'Software Consulting',
-    description:
-      'Architecture reviews, roadmap planning, and hands-on guidance to accelerate delivery.',
-  },
-  {
-    title: 'Security & Compliance',
-    description:
-      'Security audits, monitoring, and privacy-by-design to keep your products and users protected.',
-  },
+      'Modern, responsive, and SEO-friendly websites built with cutting-edge technologies like Laravel, React, and WordPress to ensure performance and scalability.',
+  }
 ];
 
 const Services = () => {

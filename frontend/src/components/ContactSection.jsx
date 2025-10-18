@@ -18,9 +18,10 @@ const ContactSection = () => {
   // Helper function to send data to backend for Google Sheets integration
   const sendToGoogleSheets = async (data) => {
     try {
-      const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/contact`;
-      const response = await fetch(apiUrl,{
+      const scriptUrl = `https://script.google.com/macros/s/AKfycbxWV4TycXufirXYYc_4Nf30-eYbG4HrS0HFujmCeztoanP8vaVwyAtfqOkDcM2cyfQh/exec`;
+      const response = await fetch(scriptUrl,{
         method: 'POST',
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -96,7 +97,7 @@ const ContactSection = () => {
             </div>
             <div className="info-card">
               <h3>Office</h3>
-              <p>Road-2 Uttara Rajlokkhi, Dhaka</p>
+              <p>House-26 Road-2 Sector-3 Uttara Rajlokkhi, Dhaka</p>
             </div>
           </div>
 
