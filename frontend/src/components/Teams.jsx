@@ -3,7 +3,7 @@ import './Teams.css';
 import teamMember1 from '../assets/kamran.jpg';
 import teamMember2 from '../assets/abrar.jpg';
 import teamMember3 from '../assets/zami.jpeg';
-import teamMember4 from '../assets/team-member-4.svg';
+import teamMember4 from '../assets/saify.jpeg';
 import { MdSportsEsports } from 'react-icons/md';
 
 const teamsData = [
