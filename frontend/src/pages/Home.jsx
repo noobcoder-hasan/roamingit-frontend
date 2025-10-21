@@ -6,6 +6,7 @@ const Services = React.lazy(() => import('../components/Services'));
 const Teams = React.lazy(() => import('../components/Teams'));
 const ContactSection = React.lazy(() => import('../components/ContactSection'));
 const About = React.lazy(() => import('../components/About'));
+const Products = React.lazy(() => import('../components/Products'));
 
 const Home = () => {
   return (
@@ -35,6 +36,11 @@ const Home = () => {
         </Suspense>
       </LazySection>
 
+      <LazySection>
+        <Suspense fallback={<div className="loading" style={{padding:'2rem',textAlign:'center'}}>Loading products…</div>}>
+          <Products />
+        </Suspense>
+      </LazySection>
       <LazySection>
         <Suspense fallback={<div className="loading" style={{padding:'2rem',textAlign:'center'}}>Loading services…</div>}>
           <Services />

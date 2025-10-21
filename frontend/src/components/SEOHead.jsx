@@ -1,82 +1,127 @@
 import React, { useEffect, useMemo } from 'react';
 
-// Lightweight head manager for SPA routes
-// Props:
-// - title: string
-// - description: string
-// - canonicalPath: string (e.g., '/about')
-// - openGraph: { type, image, siteName, urlOverride }
-// - twitter: { card, image }
-// - jsonLd: object | object[] (will be injected as application/ld+json)
+// Helper function to create, add, and return a DOM element
+const createHeadTag = (tagName, attributes) => {
+  const el = document.createElement(tagName);
+  Object.entries(attributes).forEach(([key, value]) => {
+    if (key === 'text') {
+      el.text = value; // For <script type="application/ld+json">
+    } else {
+      el.setAttribute(key, value);
+    }
+  });
+  document.head.appendChild(el);
+  return el;
+};
+
+// Helper function to remove a DOM element
+const removeHeadTag = (el) => {
+  if (el && el.parentNode) {
+    el.parentNode.removeChild(el);
+  }
+};
+
+/**
+ * Lightweight head manager for SPA routes
+ * Props:
+ * - title: string
+ * - description: string
+ * - baseUrl: string (e.g., 'https://your-domain.com', defaults to window.location.origin)
+ * - canonicalPath: string (e.g., '/about')
+ * - openGraph: { type, image, siteName, urlOverride }
+ * - twitter: { card, image }
+ * - jsonLd: object | object[] (will be injected as application/ld+json)
+ */
 const SEOHead = ({
   title,
   description,
+  baseUrl,
   canonicalPath,
   openGraph = {},
   twitter = {},
   jsonLd,
 }) => {
-  const origin = useMemo(() => (
-    typeof window !== 'undefined' ? window.location.origin : 'https://roamingit.netlify.app'
-  ), []);
+  
+  // Use baseUrl prop, env var, or window.location.origin.
+  // This removes the hardcoded 'roamingit.netlify.app' fallback.
+  const origin = useMemo(() => {
+    const defaultBase = typeof window !== 'undefined' ? window.location.origin : '';
+    const viteBase = (typeof import.meta !== 'undefined' && import.meta.env)
+      ? (import.meta.env.VITE_BASE_URL || import.meta.env.BASE_URL || '')
+      : '';
+    return baseUrl || viteBase || defaultBase;
+  }, [baseUrl]);
+
+  // Create the full canonical URL
   const canonical = useMemo(() => (
-    openGraph.urlOverride || `${origin}${canonicalPath || ''}`
+    openGraph.urlOverride || `${origin.replace(/\/$/, '')}${canonicalPath ? `/${canonicalPath.replace(/^\//, '')}` : ''}`
   ), [origin, canonicalPath, openGraph.urlOverride]);
 
   useEffect(() => {
-    if (title) document.title = title;
+    const tags = []; // Keep track of all tags we add
 
-    const setMeta = (attr) => {
-      const selector = Object.entries(attr).map(([k, v]) => `[${k}="${v}"]`).join('');
-      let el = document.head.querySelector(`meta${selector}`);
-      if (!el) {
-        el = document.createElement('meta');
-        Object.entries(attr).forEach(([k, v]) => el.setAttribute(k, v));
-        document.head.appendChild(el);
-      } else if (attr.content) {
-        el.setAttribute('content', attr.content);
-      }
-      return el;
-    };
-
-    if (description) setMeta({ name: 'description', content: description });
-    setMeta({ property: 'og:title', content: title || '' });
-    setMeta({ property: 'og:description', content: description || '' });
-    setMeta({ property: 'og:type', content: openGraph.type || 'website' });
-    setMeta({ property: 'og:url', content: canonical });
-    if (openGraph.image) setMeta({ property: 'og:image', content: openGraph.image });
-    setMeta({ name: 'twitter:card', content: twitter.card || 'summary' });
-    if (twitter.image) setMeta({ name: 'twitter:image', content: twitter.image });
-
-    const linkCanonical = (() => {
-      let link = document.head.querySelector('link[rel="canonical"]');
-      if (!link) {
-        link = document.createElement('link');
-        link.setAttribute('rel', 'canonical');
-        document.head.appendChild(link);
-      }
-      link.setAttribute('href', canonical);
-      return link;
-    })();
-
-    // JSON-LD injection
-    let jsonLdScript;
-    if (jsonLd) {
-      jsonLdScript = document.createElement('script');
-      jsonLdScript.setAttribute('type', 'application/ld+json');
-      jsonLdScript.text = JSON.stringify(jsonLd);
-      document.head.appendChild(jsonLdScript);
+    // 1. Title
+    if (title) {
+      document.title = title;
     }
 
-    return () => {
-      // Cleanup JSON-LD on unmount to avoid duplicates during navigation
-      if (jsonLdScript && jsonLdScript.parentNode) {
-        jsonLdScript.parentNode.removeChild(jsonLdScript);
-      }
-    };
-  }, [title, description, canonical, openGraph.type, openGraph.image, twitter.card, twitter.image, jsonLd]);
+    // 2. Canonical Link
+    tags.push(createHeadTag('link', { rel: 'canonical', href: canonical }));
 
-  return null;
+    // 3. Standard Meta
+    if (description) {
+      tags.push(createHeadTag('meta', { name: 'description', content: description }));
+    }
+
+    // 4. Open Graph (og:*)
+    tags.push(createHeadTag('meta', { property: 'og:title', content: title || '' }));
+    tags.push(createHeadTag('meta', { property: 'og:description', content: description || '' }));
+    tags.push(createHeadTag('meta', { property: 'og:url', content: canonical }));
+    tags.push(createHeadTag('meta', { property: 'og:type', content: openGraph.type || 'website' }));
+    if (openGraph.image) {
+      tags.push(createHeadTag('meta', { property: 'og:image', content: openGraph.image }));
+    }
+    if (openGraph.siteName) {
+      tags.push(createHeadTag('meta', { property: 'og:site_name', content: openGraph.siteName }));
+    }
+
+    // 5. Twitter
+    tags.push(createHeadTag('meta', { name: 'twitter:card', content: twitter.card || 'summary' }));
+    tags.push(createHeadTag('meta', { name: 'twitter:title', content: title || '' }));
+    tags.push(createHeadTag('meta', { name: 'twitter:description', content: description || '' }));
+    if (twitter.image) {
+      tags.push(createHeadTag('meta', { name: 'twitter:image', content: twitter.image }));
+    }
+
+    // 6. JSON-LD
+    if (jsonLd) {
+      tags.push(createHeadTag('script', {
+        type: 'application/ld+json',
+        text: JSON.stringify(jsonLd),
+      }));
+    }
+
+    // 7. Cleanup Function
+    // This runs when the component unmounts or props change
+    return () => {
+      // Remove all tags this instance created
+      tags.forEach(removeHeadTag);
+    };
+    
+  }, [
+    title, 
+    description, 
+    canonical, // Derived from origin, path, override
+    openGraph.type, 
+    openGraph.image, 
+    openGraph.siteName, 
+    twitter.card, 
+    twitter.image, 
+    jsonLd,
+    // Note: 'canonical' dependency already covers origin, canonicalPath, and urlOverride
+  ]);
+
+  return null; // This component renders nothing to the DOM tree
 };
 
 export default React.memo(SEOHead);

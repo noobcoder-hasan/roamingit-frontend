@@ -33,7 +33,7 @@ const Services = () => {
       </div> */}
       
       <div className="container">
-        <h2 id="services-title" className="section-title">Products</h2>
+        <h2 id="services-title" className="section-title">Our Services</h2>
         <p className="section-subtitle">
           We build and operate reliable, secure, and delightful products.
         </p>

@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section id="aboutus" className="about-section" aria-labelledby="about-title">
       <SEOHead
-        title="About Roaming Engineering — Product Engineering Partner"
+        title="Roaming Engineering"
         description="Roaming Engineering builds reliable products and platforms—automation, AI-powered marketing, and modern web development with Laravel, React, and WordPress."
         canonicalPath="/about"
         openGraph={{ type: 'website', siteName: 'Roaming Engineering' }}
